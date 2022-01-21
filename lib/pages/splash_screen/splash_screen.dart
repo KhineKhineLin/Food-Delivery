@@ -1,6 +1,7 @@
 //import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/constant.dart';
+import 'package:food_delivery/pages/registration_screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -58,7 +59,9 @@ class _SplashScreenState extends State<SplashScreen> {
                       borderRadius: BorderRadius.circular(50.0)),
                   minWidth: double.infinity,
                   height: 50,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
+                  },
                   color: kPrimaryColor,
                   child: const Text(
                     'Next',
