@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/pages/cart/cart_screen.dart';
+import 'package:food_delivery/pages/favourite/favourite_screen.dart';
+import 'package:food_delivery/pages/home/home_screen.dart';
 
 import '../../../constant.dart';
 import 'enum.dart';
@@ -27,27 +30,38 @@ class CustomBottomBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+            },
             icon: Icon(
               Icons.home_outlined,
               color: MenuState.home == selectMenu
-                  ? Color(0xff09b44d)
-                  : Colors.green,
-              size: 30,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.favorite_outline,
-              color: MenuState.favourite == selectMenu
-                  ? Color(0xff09b44d)
+                  ? const Color(0xff09b44d)
                   : Colors.grey,
               size: 30,
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FavouriteScreen()));
+            },
+            icon: Icon(
+              Icons.favorite_outline,
+              color: MenuState.favourite == selectMenu
+                  ? const Color(0xff09b44d)
+                  : Colors.grey,
+              size: 30,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CartScreen()));
+            },
             icon: Icon(
               Icons.shopping_cart_outlined,
               color: MenuState.cart == selectMenu
