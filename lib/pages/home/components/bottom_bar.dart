@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/pages/cart/cart_screen.dart';
 import 'package:food_delivery/pages/favourite/favourite_screen.dart';
 import 'package:food_delivery/pages/home/home_screen.dart';
+import 'package:food_delivery/pages/profile/profile.dart';
 
 import '../../../constant.dart';
 import 'enum.dart';
@@ -71,7 +72,12 @@ class CustomBottomBar extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()));
+            },
             icon: Icon(
               Icons.person_outline,
               color: MenuState.profile == selectMenu
