@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/constant.dart';
+import 'package:food_delivery/pages/home/home_screen.dart';
 import 'package:food_delivery/pages/registration_screens/components/forgot_password.dart';
 import 'package:food_delivery/pages/registration_screens/components/signup_screen.dart';
 
@@ -38,7 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 30,
                   ),
                   const TextFields(),
-                  SizedBox(height: _size.height*0.1,),
+                  SizedBox(
+                    height: _size.height * 0.1,
+                  ),
                   const SocialLoginBtn(),
                   SizedBox(
                     height: _size.height * 0.1,
@@ -63,7 +66,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           'Join now',
                           style: TextStyle(
-                              color: kPrimaryColor, fontWeight: FontWeight.w600),
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.w600),
                         ),
                       )
                     ],
@@ -180,7 +184,9 @@ class _TextFieldsState extends State<TextFields> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
             height: 50,
             onPressed: () {
-              if (_formKey.currentState!.validate()) {}
+              if (_formKey.currentState!.validate()) {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+              }
             },
             child: const Text(
               'Login',
