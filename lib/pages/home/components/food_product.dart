@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/model/food_model.dart';
+import 'package:food_delivery/pages/home/detail_screen/detail_screen.dart';
 
 import '../../../constant.dart';
+
 class FoodCard extends StatelessWidget {
   const FoodCard({
     Key? key,
@@ -16,13 +18,20 @@ class FoodCard extends StatelessWidget {
         physics: ScrollPhysics(),
         itemCount: foodProducts.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.75,
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0
-        ),
-        itemBuilder: (context, index) =>
-            FoodProduct(product: foodProducts[index], press: () {}),
+            crossAxisCount: 2,
+            childAspectRatio: 0.75,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0),
+        itemBuilder: (context, index) => FoodProduct(
+            product: foodProducts[index],
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailScreen(
+                            foodDetail: foodProducts[index],
+                          )));
+            }),
       ),
     );
   }
@@ -64,7 +73,9 @@ class FoodProduct extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                const SizedBox(height: 10.0,),
+                const SizedBox(
+                  height: 10.0,
+                ),
                 const Icon(
                   Icons.star,
                   size: 20,
